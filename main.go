@@ -8,6 +8,7 @@ import (
 type DateTime struct {
 	Year           string
 	Month          string
+	MonthShort     string
 	Day            string
 	WeekDay        string
 	Hours          string
@@ -21,14 +22,17 @@ type DateTime struct {
 	Timezone       string
 }
 
+var ShortMonthNames [12]string
+
 const (
-	YearStr     = "Y"
-	MonthStr    = "m"
-	DayStr      = "d"
-	HourStr     = "H"
-	MinuteStr   = "i"
-	SecondStr   = "s"
-	TimezoneStr = "O"
+	YearStr       = "Y"
+	MonthStr      = "m"
+	MonthShortStr = "M"
+	DayStr        = "d"
+	HourStr       = "H"
+	MinuteStr     = "i"
+	SecondStr     = "s"
+	TimezoneStr   = "O"
 )
 
 var DateTimeDefault DateTime
@@ -40,6 +44,10 @@ func (dateTime *DateTime) replaceFormat(format string) string {
 
 	if strings.Contains(format, MonthStr) {
 		format = strings.Replace(format, MonthStr, dateTime.Month, 1)
+	}
+
+	if strings.Contains(format, MonthShortStr) {
+		format = strings.Replace(format, MonthShortStr, dateTime.MonthShort, 1)
 	}
 
 	if strings.Contains(format, DayStr) {
@@ -72,6 +80,7 @@ func NewDateTime() DateTime {
 	return DateTime{
 		Year:           "2006",
 		Month:          "01",
+		MonthShort:     "Jan",
 		Day:            "02",
 		WeekDay:        "Mon",
 		Hours:          "15",

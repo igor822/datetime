@@ -14,6 +14,14 @@ func TestFormat(t *testing.T) {
 	if formatted != expected {
 		t.Error("Format is wrong ", formatted)
 	}
+
+	toFormat = "d/M/Y H:i:s"
+	expected = "10/Feb/2018 12:03:14"
+
+	formatted = datetime.Format(fromFormat, toFormat, "2018-02-10 12:03:14")
+	if formatted != expected {
+		t.Error("Format is wrong ", formatted)
+	}
 }
 
 func TestNew(t *testing.T) {
