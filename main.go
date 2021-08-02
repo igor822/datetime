@@ -1,4 +1,4 @@
-package main
+package datetime
 
 import (
 	"strings"
@@ -93,8 +93,4 @@ func NewDateTime() DateTime {
 		TimezoneOffset: "0700",
 		Timezone:       "MST",
 	}
-}
-
-func main() {
-	//datetime := NewDateTime()
 }
