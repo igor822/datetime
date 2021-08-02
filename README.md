@@ -1,5 +1,5 @@
 DateTime
-================
+========
 
 This is a simple library to format date and time strings.  
 Here is some example
@@ -10,7 +10,8 @@ import(
     "fmt"
 )
 
-output := datetime.Format("Y-m-d", "d/m/Y", "2018-01-30 15:30:14")
+dt := datetime.NewDateTime()
+output := dt.Format("Y-m-d", "d/m/Y", "2018-01-30 15:30:14")
 fmt.Println(output)
 ```
 

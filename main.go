@@ -5,6 +5,7 @@ import (
 	"time"
 )
 
+// DateTime struct containg date pieces
 type DateTime struct {
 	Year           string
 	Month          string
@@ -22,6 +23,7 @@ type DateTime struct {
 	Timezone       string
 }
 
+// ShortMonthNames variable
 var ShortMonthNames [12]string
 
 const (
@@ -68,6 +70,7 @@ func (dateTime *DateTime) replaceFormat(format string) string {
 	return format
 }
 
+// Format receiver to format strings
 func (dateTime *DateTime) Format(fromFormat string, toFormat string, datetime string) string {
 	fromFormatted := dateTime.replaceFormat(fromFormat)
 	parseTime, _ := time.Parse(fromFormatted, datetime)
@@ -76,6 +79,7 @@ func (dateTime *DateTime) Format(fromFormat string, toFormat string, datetime st
 	return parseTime.Format(toFormatted)
 }
 
+// NewDateTime function to create a new DateTime object
 func NewDateTime() DateTime {
 	return DateTime{
 		Year:           "2006",
